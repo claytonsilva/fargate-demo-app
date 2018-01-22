@@ -1,0 +1,11 @@
+{
+    "name": "shatterdome-test-app",
+    "version": "0.0.0-master",
+    "main": "./lib/index",
+    "dependencies": {
+        "express": "4.16.2"
+    },
+    "scripts": {
+        "start": "node ./lib/index.js"
+    }
+}
