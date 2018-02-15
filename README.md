@@ -1,15 +1,10 @@
-# shatterdome-test-app
+# fargate-test-app
 
-This is a test application used to benchmark our next generation infrastructure.
+Aplicação pra teste de deploy com ciclo de vida gerenciado pelo travis
 
-## Why ?
+## Porquê ?
 
-We need to quickly deploy our applications to our new cluster, but we don't know which one is better. This application is being used to benchmark which stack will fit our needs better:
-
-- AWS ECS
-- Nomad
-- OpenShift
-- Tectonic
+- AWS ECS Fargate está em fase de testes e precisamos demonstrar vários modelos de deploy da aplicação usando esse exemplo
 
 ## What ?
 
