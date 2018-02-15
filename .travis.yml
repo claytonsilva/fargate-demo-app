@@ -14,7 +14,7 @@ before_script:
   - eval $(aws ecr get-login --region us-east-1 --no-include-email) #needs AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY envvars
 script:
   - echo "no tests!" # put your normal testing scripts here
-  - docker build -t sample-app .
+  - docker build -t $TASK .
 deploy:
   provider: script
   script: bash deploy.sh
