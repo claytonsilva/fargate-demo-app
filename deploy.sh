@@ -1,5 +1,5 @@
 #!/bin/bash
-IMAGE_PREFIX="$AWS_ACCOUNT.dkr.ecr.us-east-1.amazonaws.com"
+IMAGE_PREFIX="$AWS_ACCOUNT.dkr.ecr.$REGION.amazonaws.com"
 
 docker tag $TASK:latest $IMAGE_PREFIX/$TASK:$TRAVIS_TAG
 docker push $IMAGE_PREFIX/$TASK:$TRAVIS_TAG
@@ -26,4 +26,4 @@ cp $cfg_tpl $cfg
 #register new definition rev 
 revision="$(aws ecs register-task-definition --region $REGION --cli-input-json file://$(pwd)/$cfg | jq '.taskDefinition.revision')"
 #apply rolling update
-aws ecs update-service --service $TASK --task-definition "$TASK:$revision"
+aws ecs update-service --region $REGION --service $TASK --task-definition "$TASK:$revision"
