@@ -22,6 +22,13 @@
 		"essential": true,
 		"name": "{{TASK}}"
 	}],
+	"requiresCompatibilities": [
+    "FARGATE"
+  ],
+	"compatibilities": [
+    "EC2",
+    "FARGATE"
+  ],
 	"family": "{{TASKGROUP}}",
 	"networkMode": "awsvpc",
 	"volumes": [],
