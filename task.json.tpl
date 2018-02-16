@@ -28,5 +28,6 @@
 	"family": "{{TASKGROUP}}",
 	"networkMode": "awsvpc",
 	"volumes": [],
-	"taskRoleArn": "{{AWS_ROLE}}"
+	"taskRoleArn": "{{AWS_ROLE}}",
+	"executionRoleArn": "{{AWS_ROLE}}"
 }
