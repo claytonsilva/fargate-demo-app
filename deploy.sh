@@ -11,7 +11,7 @@ cfg_tpl=$cfg.tpl
 #region
 sed -i -- s/{{REGION}}/$REGION/g $cfg_tpl
 #role
-sed -i -- s/{{ROLE}}/$AWS_ROLE/g $cfg_tpl
+sed -i -- s/{{AWS_ROLE}}/$AWS_ROLE/g $cfg_tpl
 # containerport
 sed -i -- s/{{CONTAINERPORT}}/$CONTAINERPORT/g $cfg_tpl
 # image
