@@ -12,7 +12,7 @@ cfg='task.json'
 echo "change containerport"
 sed -i -- s/{{CONTAINERPORT}}/$CONTAINERPORT/g $cfg
 # image
-echo "change image"
+echo "change $IMAGE"
 sed -i -- s/{{IMAGE}}/$IMAGE/g $cfg
 # task
 echo "change task"
