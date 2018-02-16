@@ -23,5 +23,5 @@ sed -i -- s/{{TASKGROUP}}/$TASKGROUP/g $cfg_tpl
 
 cp $cfg_tpl $cfg
 
-revision= $(aws ecs register-task-definition --region $REGION --cli-input-json file://$(pwd)/$cfg | jq '.taskDefinition.revision')
+revision=$(aws ecs register-task-definition --region $REGION --cli-input-json file://$(pwd)/$cfg | jq '.taskDefinition.revision')
 echo $TASK:$revision
