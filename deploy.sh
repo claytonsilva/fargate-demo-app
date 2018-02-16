@@ -26,4 +26,4 @@ cp $cfg_tpl $cfg
 #register new definition rev 
 revision="$(aws ecs register-task-definition --region $REGION --cli-input-json file://$(pwd)/$cfg | jq '.taskDefinition.revision')"
 #apply rolling update
-aws ecs update-service --region $REGION --service $TASK --task-definition "$TASK:$revision"
+aws ecs update-service --cluster $CLUSTER --region $REGION --service $TASK --task-definition "$TASK:$revision"
