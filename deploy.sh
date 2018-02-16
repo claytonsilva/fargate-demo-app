@@ -1,16 +1,10 @@
 #!/bin/bash
-# tasks=($(aws ecs list-tasks  --cluster $CLUSTER --service $TASK | ./JSON.sh  -l | awk '{print $2}' |  cut  -d'/' -f 2 | cut -d'"' -f 1))
-# for i  in "${tasks[@]}"
-# do 
-# 	aws ecs stop-task --region us-east-1 --cluster $CLUSTER --task $i
-# 	sleep 120
-# done
 IMAGE=$AWS_ACCOUNT.dkr.ecr.us-east-1.amazonaws.com/$TASK:$TRAVIS_TAG
 
 docker tag $TASK:latest $IMAGE
 docker push $IMAGE
 
-cfg=$(pwd)'/task.json'
+cfg='task.json'
 
 #role
 # sed -i -- s/{{ROLE}}/$AWS_ROLE/g $cfg
