@@ -14,7 +14,7 @@ before_script:
   - pip install --user awscli==1.14.39  # install aws cli w/o sudo
   - export PATH=$PATH:$HOME/.local/bin # put aws in the path
   # install jq
-  - curl -sSL -o ~/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod +x ~/.local/bin/jq
+  - curl -sSL -o ~/.local/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod +x ~/.local/bin/jq
   # install ecs-deploy
   - curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ecs-deploy | sudo tee -a ~/.local/bin/ecs-deploy
   - chmod +x ~/.local/bin/ecs-deploy
