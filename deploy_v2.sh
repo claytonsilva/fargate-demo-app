@@ -1,3 +1,4 @@
+#waiting for pr https://github.com/silinternational/ecs-deploy/pull/129
 #!/bin/bash
 IMAGE_PREFIX="$AWS_ACCOUNT.dkr.ecr.$REGION.amazonaws.com"
 

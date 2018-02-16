@@ -15,8 +15,8 @@ before_script:
   - export PATH=$PATH:$HOME/.local/bin # put aws in the path
   # install jq
   - curl -sSL -o ~/.local/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod +x ~/.local/bin/jq
-  # install ecs-deploy
-  - curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ecs-deploy | sudo tee -a ~/.local/bin/ecs-deploy
+  # install ecs-deploy (in work version)
+  - curl https://raw.githubusercontent.com/kakakakakku/ecs-deploy/675e0e064bc20ad81634efdfe41d802fbe3c30e3/ecs-deploy | sudo tee -a ~/.local/bin/ecs-deploy
   - sudo chmod +x ~/.local/bin/ecs-deploy
   #ecr-login
   - eval $(aws ecr get-login --region us-east-1 --no-include-email) #needs AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY envvars
