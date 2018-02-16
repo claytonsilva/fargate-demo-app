@@ -9,10 +9,13 @@ cfg='task.json'
 #role
 # sed -i -- s/{{ROLE}}/$AWS_ROLE/g $cfg
 # containerport
+echo "change containerport"
 sed -i -- s/{{CONTAINERPORT}}/$CONTAINERPORT/g $cfg
 # image
+echo "change image"
 sed -i -- s/{{IMAGE}}/$IMAGE/g $cfg
 # task
+echo "change task"
 sed -i -- s/{{TASK}}/$TASK/g $cfg
 
 
