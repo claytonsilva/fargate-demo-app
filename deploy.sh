@@ -18,5 +18,7 @@ sed -i -- s/{{IMAGE}}/$IMAGE/g $cfg
 echo "change task"
 sed -i -- s/{{TASK}}/$TASK/g $cfg
 
+# show file
+more $cfg
 
 aws ecs register-task-definition --cli-input-json file://$(pwd)/$cfg
