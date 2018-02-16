@@ -31,5 +31,5 @@
 	"taskRoleArn": "{{AWS_ROLE}}",
 	"executionRoleArn": "{{AWS_ROLE}}",
 	"cpu": "512",
-	"memory": "512"
+	"memory": "1024"
 }
