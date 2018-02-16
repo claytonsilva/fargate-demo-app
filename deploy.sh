@@ -16,7 +16,7 @@ echo "change $IMAGE"
 sed -i -- s/{{IMAGE}}/$IMAGE/g $cfg
 # task
 echo "change task"
-sed -i -- s/{{TASK}}/$TASK/g
+sed -i -- s/{{TASK}}/$TASK/g $cfg
 
 
-aws ecs register-task-definition --cli-input-json file://$cfg
+aws ecs register-task-definition --cli-input-json file://$(pwd)/$cfg
