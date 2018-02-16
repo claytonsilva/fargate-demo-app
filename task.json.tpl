@@ -30,6 +30,6 @@
 	"volumes": [],
 	"taskRoleArn": "{{AWS_ROLE}}",
 	"executionRoleArn": "{{AWS_ROLE}}",
-	"cpu": 512,
-	"memory": 512
+	"cpu": "512",
+	"memory": "512"
 }
