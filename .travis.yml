@@ -8,9 +8,15 @@ node_js:
   - "8"
 before_script:
   - echo "no code!"
-  - docker --version  # document the version travis is using
+  # install jq
+  - mkdir -p ~/bin && curl -sSL -o ~/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod +x ~/.local/bin/jq
+  # install ecs-deploy
+  - curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ecs-deploy | sudo tee -a ~/.local/bin/ecs-deploy
+  - chmod +x ~/.local/bin/ecs-deploy
+  #install aws-cli
   - pip install --user awscli==1.14.39  # install aws cli w/o sudo
   - export PATH=$PATH:$HOME/.local/bin # put aws in the path
+  #ecr-login
   - eval $(aws ecr get-login --region us-east-1 --no-include-email) #needs AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY envvars
 script:
   - echo "no tests!" # put your normal testing scripts here
