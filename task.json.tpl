@@ -15,6 +15,7 @@
 		}],
 		"cpu": 512,
     "memory": 512,
+		"memoryReservation": 512,
 		"environment": [],
 		"mountPoints": [],
 		"volumesFrom": [],

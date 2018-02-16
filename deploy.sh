@@ -1,8 +1,8 @@
 #!/bin/bash
-IMAGE="$AWS_ACCOUNT.dkr.ecr.us-east-1.amazonaws.com\/$TASK:$TRAVIS_TAG"
+IMAGE_PREFIX="$AWS_ACCOUNT.dkr.ecr.us-east-1.amazonaws.com"
 
-docker tag $TASK:latest $IMAGE
-docker push $IMAGE
+docker tag $TASK:latest $IMAGE_PREFIX/$TASK:$TRAVIS_TAG
+docker push $IMAGE_PREFIX/$TASK:$TRAVIS_TAG
 
 cfg='task.json'
 
@@ -15,7 +15,7 @@ sed -i -- s/{{AWS_ROLE}}/$AWS_ROLE/g $cfg_tpl
 # containerport
 sed -i -- s/{{CONTAINERPORT}}/$CONTAINERPORT/g $cfg_tpl
 # image
-sed -i -- s/{{IMAGE}}/$IMAGE/g $cfg_tpl
+sed -i -- s/{{IMAGE}}/"$IMAGE\/$TASK:$TRAVIS_TAG"/g $cfg_tpl
 # task
 sed -i -- s/{{TASK}}/$TASK/g $cfg_tpl
 # taskgroup
