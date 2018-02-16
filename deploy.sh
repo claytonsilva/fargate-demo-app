@@ -6,19 +6,21 @@ docker push $IMAGE
 
 cfg='task.json'
 
+cfg_tpl=$cfg.tpl
+
+#region
+sed -i -- s/{{REGION}}/$REGION/g $cfg_tpl
 #role
-# sed -i -- s/{{ROLE}}/$AWS_ROLE/g $cfg
+sed -i -- s/{{ROLE}}/$AWS_ROLE/g $cfg_tpl
 # containerport
-echo "change containerport"
-sed -i -- s/{{CONTAINERPORT}}/$CONTAINERPORT/g $cfg
+sed -i -- s/{{CONTAINERPORT}}/$CONTAINERPORT/g $cfg_tpl
 # image
-echo "change $IMAGE"
-sed -i -- s/{{IMAGE}}/$IMAGE/g $cfg
+sed -i -- s/{{IMAGE}}/$IMAGE/g $cfg_tpl
 # task
-echo "change task"
-sed -i -- s/{{TASK}}/$TASK/g $cfg
+sed -i -- s/{{TASK}}/$TASK/g $cfg_tpl
+# taskgroup
+sed -i -- s/{{TASKGROUP}}/$TASKGROUP/g $cfg_tpl
 
-# show file
-more $cfg
+cp $cfg_tpl $cfg
 
-aws ecs register-task-definition --cli-input-json file://$(pwd)/$cfg
+aws ecs register-task-definition --region $REGION --cli-input-json file://$(pwd)/$cfg
